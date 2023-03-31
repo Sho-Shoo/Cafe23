@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   # Resource routes (maps HTTP verbs to controller actions automatically):
   # Routes for regular HTML views go here...
   resources :stores, except: [:destroy]
+  resources :employees
 
   # You can have the root of your site routed with 'root'
   root 'home#index'
