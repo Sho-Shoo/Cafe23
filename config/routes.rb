@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   # Routes for regular HTML views go here...
   resources :stores, except: [:destroy]
   resources :employees
+  resources :assignments
 
   # You can have the root of your site routed with 'root'
   root 'home#index'
