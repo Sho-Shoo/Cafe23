@@ -31,6 +31,10 @@ Rails.application.routes.draw do
   resources :employees
   resources :assignments
   resources :jobs, except: [:show]
+  resources :pay_grades, except: [:destroy]
+
+  get 'pay_grade_rates/new', to: 'pay_grade_rates#new', as: :new_pay_grade_rate
+  post 'pay_grade_rates', to: 'pay_grade_rates#create', as: :pay_grade_rates
 
   # You can have the root of your site routed with 'root'
   root 'home#index'
