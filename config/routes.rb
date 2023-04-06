@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   resources :stores, except: [:destroy]
   resources :employees
   resources :assignments
+  resources :jobs, except: [:show]
 
   # You can have the root of your site routed with 'root'
   root 'home#index'
