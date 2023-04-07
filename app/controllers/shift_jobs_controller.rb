@@ -17,11 +17,8 @@ class ShiftJobsController < ApplicationController
     end
 
     def destroy
-        if @shift_job.destroy
-            redirect_to shift_path(@shift_job.shift)
-        else
-            redirect_to shift_path(@shift_job.shift), notice: "Deletion failed."
-        end
+        @shift_job.destroy
+        redirect_to shift_path(@shift_job.shift)
     end
 
 
