@@ -34,6 +34,11 @@ Rails.application.routes.draw do
   resources :pay_grades, except: [:destroy]
   resources :shifts
 
+  # time_clock routes in shifts controller
+  get 'time_clock', to: 'shifts#time_clock', as: :time_clock
+  patch 'time_in', to: 'shifts#time_in', as: :time_in
+  patch 'time_out', to: 'shifts#time_out', as: :time_out
+
   get 'pay_grade_rates/new', to: 'pay_grade_rates#new', as: :new_pay_grade_rate
   post 'pay_grade_rates', to: 'pay_grade_rates#create', as: :pay_grade_rates
 
