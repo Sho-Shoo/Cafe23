@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   resources :assignments
   resources :jobs, except: [:show]
   resources :pay_grades, except: [:destroy]
+  resources :shifts
 
   get 'pay_grade_rates/new', to: 'pay_grade_rates#new', as: :new_pay_grade_rate
   post 'pay_grade_rates', to: 'pay_grade_rates#create', as: :pay_grade_rates
