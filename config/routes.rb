@@ -36,6 +36,11 @@ Rails.application.routes.draw do
   get 'pay_grade_rates/new', to: 'pay_grade_rates#new', as: :new_pay_grade_rate
   post 'pay_grade_rates', to: 'pay_grade_rates#create', as: :pay_grade_rates
 
+  get 'payrolls/store_form', to: 'payrolls#store_form', as: :store_form
+  get 'payrolls/employee_form', to: 'payrolls#employee_form', as: :employee_form
+  get 'payrolls/store_payroll', to: 'payrolls#store_payroll', as: :store_payroll
+  get 'payrolls/employee_payroll', to: 'payrolls#employee_payroll', as: :employee_payroll
+
   # You can have the root of your site routed with 'root'
   root 'home#index'
   
