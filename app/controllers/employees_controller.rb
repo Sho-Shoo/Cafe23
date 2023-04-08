@@ -6,8 +6,8 @@ class EmployeesController < ApplicationController
     def index
         if current_user.role == 'manager'
             subordinates = current_user.current_assignment.store.employees
-            @active_employees = subordinates.active
-            @inactive_employees = subordinates.inactive
+            @active_employees = subordinates.active.alphabetical.paginate(page: params[:page]).per_page(10)
+            @inactive_employees = subordinates.inactive.alphabetical.paginate(page: params[:page]).per_page(10)
         else
             @active_employees = Employee.alphabetical.active.paginate(page: params[:page]).per_page(10)
             @inactive_employees = Employee.alphabetical.inactive.paginate(page: params[:page]).per_page(10)

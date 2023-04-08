@@ -1,1 +1,67 @@
 <h4>Active Employees at Cafe23</h4>
+
+<!--<#%= render partial: "partials/structure1", locals: {model_name: "employee",-->
+<!--                                                    primary: "tabbed_index",-->
+<!--                                                    secondary: nil,-->
+<!--                                                    sidebar: nil} %>-->
+
+<table class="striped highlight">
+  <thead>
+  <th>Name</th>
+  <th>Current Assignment</th>
+  <th>Phone</th>
+  <th class="align_center">Options</th>
+  </thead>
+  <% for employee in @active_employees %>
+    <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+      <td><%= link_to employee.name, employee_path(employee) %></td>
+      <td>
+        <% if employee.current_assignment.nil? %>
+          n/a
+        <% else %>
+          <%= link_to employee.current_assignment.store.name, store_path(employee.current_assignment.store) %>
+        <% end %>
+      </td>
+      <td><%= employee.formatted_phone %></td>
+
+      <td class="align_center">
+        <% if can? :edit, employee %>
+          <%= link_to edit_employee_path(employee) do %>
+            <i class="material-icons">edit</i>
+          <% end %>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+        <% end %>
+        <% if can? :destroy, employee %>
+          <%= link_to(employee_path(employee), method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' }) do %>
+            <i class="material-icons">delete</i>
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<p class="supertiny"></p>
+<br />
+<%= will_paginate @active_employees, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
+<p>&nbsp;</p>
+<%= render :partial => "partials/add_new_object", locals: {model_name: 'employee'} %>
+
+<br /><br />
+
+<h4>Inactive Employees</h4>
+
+<table class="striped highlight">
+  <thead>
+  <th>Name</th>
+  <th>Phone</th>
+  </thead>
+  <% for employee in @inactive_employees %>
+    <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+      <td><%= link_to employee.name, employee_path(employee) %></td>
+      <td><%= employee.formatted_phone %></td>
+    </tr>
+  <% end %>
+</table>
+<p class="supertiny"></p>
+<br />
+<%= will_paginate @inactive_employees, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
