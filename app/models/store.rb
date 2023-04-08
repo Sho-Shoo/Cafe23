@@ -24,6 +24,11 @@ class Store < ApplicationRecord
   # make sure stores have unique names (case insensitive)
   validates_uniqueness_of :name, case_sensitive: false
 
+  def formatted_phone
+    phone = self.phone
+    phone[0..2] + "-" + phone[3..5] + "-" + phone[6..9]
+  end
+
   # Callbacks
   before_save    -> { strip_nondigits_from(:phone) }
   before_destroy -> { cannot_destroy_object() }

@@ -1,1 +1,56 @@
 <h4>Active Stores owned by Cafe23</h4>
+
+<table class="striped highlight">
+  <thead>
+  <th>Name</th>
+  <th>Current Assignments</th>
+  <th>Phone</th>
+  <th class="align_center">Options</th>
+  </thead>
+  <% for store in @active_stores %>
+    <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+      <td><%= link_to store.name, store_path(store) %></td>
+      <td><%= store.assignments.current.length %></td>
+      <td><%= store.formatted_phone %></td>
+
+      <td class="align_center">
+        <% if can? :edit, store %>
+          <%= link_to edit_store_path(store) do %>
+            <i class="material-icons">edit</i>
+          <% end %>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+        <% end %>
+        <% if can? :destroy, store %>
+          <%= link_to(store_path(store), method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' }) do %>
+            <i class="material-icons">delete</i>
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<p class="supertiny"></p>
+<br />
+<%= will_paginate @active_stores, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
+<p>&nbsp;</p>
+<%= render :partial => "partials/add_new_object", locals: {model_name: 'store'} %>
+
+<br /><br />
+
+<h4>Inactive Stores</h4>
+
+<table class="striped highlight">
+  <thead>
+  <th>Name</th>
+  <th>Phone</th>
+  </thead>
+  <% for store in @inactive_stores %>
+    <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+      <td><%= link_to store.name, store_path(store) %></td>
+      <td><%= store.formatted_phone %></td>
+    </tr>
+  <% end %>
+</table>
+<p class="supertiny"></p>
+<br />
+<%= will_paginate @inactive_stores, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
