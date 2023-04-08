@@ -6,11 +6,11 @@ class AssignmentsController < ApplicationController
     def index
         if current_user.role == 'employee'
             user_assignments = Assignment.for_employee(current_user)
-            @current_assignments = user_assignments.current
-            @past_assignments = user_assignments.past
+            @current_assignments = user_assignments.current.by_employee.paginate(page: params[:page]).per_page(10)
+            @past_assignments = user_assignments.past.by_employee.paginate(page: params[:page]).per_page(10)
         else
-            @current_assignments = Assignment.current
-            @past_assignments = Assignment.past
+            @current_assignments = Assignment.current.by_employee.paginate(page: params[:page]).per_page(10)
+            @past_assignments = Assignment.past.by_employee.paginate(page: params[:page]).per_page(10)
         end
     end
 

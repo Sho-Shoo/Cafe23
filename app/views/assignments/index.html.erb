@@ -1,1 +1,39 @@
 <h4>Current Assignments</h4>
+
+<table class="striped highlight">
+  <thead>
+  <th>Start Date</th>
+  <th>Store</th>
+  <th>Employee</th>
+  <th>Pay Grade</th>
+  <th>Shift Count</th>
+  <th class="align_center">Options</th>
+  </thead>
+  <% for assignment in @current_assignments %>
+    <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+      <td><%= assignment.start_date.strftime('%m/%d/%y') %></td>
+      <td><%= link_to assignment.store.name, store_path(assignment.store) %></td>
+      <td><%= link_to assignment.employee.proper_name, employee_path(assignment.employee) %></td>
+      <td><%= link_to assignment.pay_grade.level, pay_grade_path(assignment.pay_grade) %></td>
+
+      <td class="align_center">
+        <% if can? :edit, assignment %>
+          <%= link_to edit_assignment_path(assignment) do %>
+            <i class="material-icons">edit</i>
+          <% end %>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+        <% end %>
+        <% if can? :destroy, assignment %>
+          <%= link_to(assignment_path(assignment), method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' }) do %>
+            <i class="material-icons">delete</i>
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<p class="supertiny"></p>
+<br />
+<%= will_paginate @current_assignments, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
+<p>&nbsp;</p>
+<%= render :partial => "partials/add_new_object", locals: {model_name: 'assignment'} %>
