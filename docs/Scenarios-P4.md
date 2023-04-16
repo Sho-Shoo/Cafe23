@@ -9,7 +9,7 @@ For this phase, we are asking you to build out the interface that will support t
 
 1. The administrator logs in and chooses the payroll option for stores.  The admin gets a form that allows him/her to choose the store he/she wants to calculate payroll for, as well as a start and end date that the payroll report will cover.  After entering this information, the admin gets a report for the store and time period in question.  This report provides in list form the payroll report for each employee who has a shift in the time period; the contents of the employee report match the requirements of the first scenario.
 
-1. The administrator logs in and creates a new employee, Luke Skywalker.  Once it is confirmed that Luke has been added to the system, the administrator assigns Luke to the CMU store. Upon submission, the administrator get appropriate feedback that the task has been correctly completed.
+1. (DONE) The administrator logs in and creates a new employee, Luke Skywalker.  Once it is confirmed that Luke has been added to the system, the administrator assigns Luke to the CMU store. Upon submission, the administrator get appropriate feedback that the task has been correctly completed.
 
 ---
 
@@ -25,6 +25,6 @@ For this phase, we are asking you to build out the interface that will support t
 
 **For Employees**
 
-1. An employee logs in and is immediately taken to a list of upcoming shifts the employee is scheduled for.  If one of the shifts on the list is schedule for today, then there will be an option on the page to start the shift.  Choosing that option will start the time clock and begin the shift and the employee receives appropriate feedback that this is the case.
+1. (Done) An employee logs in and is immediately taken to a list of upcoming shifts the employee is scheduled for.  If one of the shifts on the list is schedule for today, then there will be an option on the page to start the shift.  Choosing that option will start the time clock and begin the shift and the employee receives appropriate feedback that this is the case.
 
-1. An employee logs in and is immediately taken to a list of upcoming shifts the employee is scheduled for.  If one of the shifts on the list is schedule already under way, then there will be an option on the page to end the shift.  Choosing that option will stop the time clock and end the shift and the employee receives appropriate feedback that this is the case.
+1. (Done) An employee logs in and is immediately taken to a list of upcoming shifts the employee is scheduled for.  If one of the shifts on the list is schedule already under way, then there will be an option on the page to end the shift.  Choosing that option will stop the time clock and end the shift and the employee receives appropriate feedback that this is the case.
