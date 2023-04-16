@@ -20,6 +20,10 @@ class PayGrade < ApplicationRecord
     self.pay_grade_rates.current.first
   end
 
+  def to_s
+    self.level
+  end
+
   # Callbacks
   before_destroy -> { cannot_destroy_object() }
   
