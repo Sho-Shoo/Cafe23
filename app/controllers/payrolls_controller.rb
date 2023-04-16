@@ -22,6 +22,7 @@ class PayrollsController < ApplicationController
     end
 
     def store_payroll
+        p params
         if current_user.role == 'manager'
             store = current_user.current_assignment.store
         else
