@@ -7,10 +7,17 @@
           <%#= f.error_notification %>
           <div class="row">
             <div class="form-inputs">
-              <div>
-                <%= form.label :store_id %>
-                <%= form.collection_select :store_id, Store.alphabetical.active, :id, :name, prompt: true %>
-              </div>
+              <% if current_user.admin_role? %>
+                <div>
+                  <%= form.label :store_id %>
+                  <%= form.collection_select :store_id, Store.alphabetical.active, :id, :name, prompt: true %>
+                </div>
+              <% else %>
+                <div>
+                  <%= form.label :store_id %>
+                  <%= form.collection_select :store_id, [current_user.current_assignment.store], :id, :name, prompt: false %>
+                </div>
+              <% end %>
               <div>
                 <%= form.label :start_date %>
                 <%= form.date_field :start_date %>
