@@ -3,18 +3,15 @@ class PayrollsController < ApplicationController
     # authorize_resource
 
     def store_form
-        if current_user.role == 'employee'
-            redirect_to home_path
-        end
+        authorize! :store_form, :payrolls_controller
     end
 
     def employee_form
-        if current_user.role == 'manager' or current_user.role == 'employee'
-            redirect_to home_path
-        end
+        authorize! :employee_form, :payrolls_controller
     end
 
     def employee_payroll
+        authorize! :employee_payroll, :payrolls_controller
         employee_id = params[:employee_id]
         start_date = DateTime.parse(params[:start_date]).to_date
         end_date = DateTime.parse(params[:end_date]).to_date
@@ -25,7 +22,7 @@ class PayrollsController < ApplicationController
     end
 
     def store_payroll
-        p params
+        authorize! :store_payroll, :payrolls_controller
         if current_user.role == 'manager'
             @store = current_user.current_assignment.store
         else
@@ -37,7 +34,6 @@ class PayrollsController < ApplicationController
         date_range = DateRange.new(@start_date, @end_date)
         payroll_calculator = PayrollCalculator.new(date_range)
         @store_payroll = payroll_calculator.create_payrolls_for(@store)
-        authorize! :show, @store
     end
 
 end
