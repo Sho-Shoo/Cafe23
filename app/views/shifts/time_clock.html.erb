@@ -20,7 +20,7 @@
       <% if shift.jobs.empty? %>
         <td>None</td>
       <% else %>
-        <td><%= shift.jobs.map{|j| j.name + " "}.join(',') %></td>
+        <td><%= shift.jobs.map{|j| j.name}.join(', ') %></td>
       <% end %>
 
       <td><%= shift.notes %></td>
