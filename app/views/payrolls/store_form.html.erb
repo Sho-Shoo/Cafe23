@@ -12,7 +12,7 @@
                   <%= form.label :store_id %>
                   <%= form.collection_select :store_id, Store.alphabetical.active, :id, :name, prompt: true %>
                 </div>
-              <% else %>
+              <% elsif current_user.manager_role? %>
                 <div>
                   <%= form.label :store_id %>
                   <%= form.collection_select :store_id, [current_user.current_assignment.store], :id, :name, prompt: false %>
