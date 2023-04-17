@@ -5,7 +5,7 @@ For this phase, we are asking you to build out the interface that will support t
 
 **For Administrators**
 
-1. The administrator logs in and chooses the payroll option for employees.  The admin gets a form that allows him/her to choose the employee he/she wants to calculate payroll for, as well as a start and end date that the payroll report will cover.  After entering this information, the admin gets a report on the employee's payroll, including the time period in question, the employee name, SSN, current pay grade, current rate, the number of hours worked in that period, and the money earned for that work.
+1. (DONE) The administrator logs in and chooses the payroll option for employees.  The admin gets a form that allows him/her to choose the employee he/she wants to calculate payroll for, as well as a start and end date that the payroll report will cover.  After entering this information, the admin gets a report on the employee's payroll, including the time period in question, the employee name, SSN, current pay grade, current rate, the number of hours worked in that period, and the money earned for that work.
 
 1. (DONE) The administrator logs in and chooses the payroll option for stores.  The admin gets a form that allows him/her to choose the store he/she wants to calculate payroll for, as well as a start and end date that the payroll report will cover.  After entering this information, the admin gets a report for the store and time period in question.  This report provides in list form the payroll report for each employee who has a shift in the time period; the contents of the employee report match the requirements of the first scenario.
 
