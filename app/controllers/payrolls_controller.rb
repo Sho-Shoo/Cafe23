@@ -13,10 +13,10 @@ class PayrollsController < ApplicationController
     def employee_payroll
         authorize! :employee_payroll, :payrolls_controller
         employee_id = params[:employee_id]
-        start_date = DateTime.parse(params[:start_date]).to_date
-        end_date = DateTime.parse(params[:end_date]).to_date
+        @start_date = DateTime.parse(params[:start_date]).to_date
+        @end_date = DateTime.parse(params[:end_date]).to_date
         employee = Employee.find(employee_id)
-        date_range = DateRange.new(start_date, end_date)
+        date_range = DateRange.new(@start_date, @end_date)
         payroll_calculator = PayrollCalculator.new(date_range)
         @employee_payroll = payroll_calculator.create_payroll_record_for(employee)
     end

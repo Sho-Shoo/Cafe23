@@ -1,0 +1,39 @@
+<h4>Employee Payroll Report</h4>
+<h5>For employee <%= @employee_payroll.employee.name %> from <%= humanize_date(@start_date) %> to <%= humanize_date(@end_date) %></h5>
+
+<table class="striped highlight">
+  <thead>
+  <th>Item</th>
+  <th>Value</th>
+  </thead>
+
+  <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+    <td>Name</td>
+    <td><%= @employee_payroll.employee.name %></td>
+  </tr>
+  <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+    <td>SSN</td>
+    <td><%= @employee_payroll.employee.ssn %></td>
+  </tr>
+  <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+    <td>Pay Grade</td>
+    <td><%= @employee_payroll.pay_grade %></td>
+  </tr>
+  <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+    <td>Pay Rate</td>
+    <td>$<%= @employee_payroll.pay_rate %></td>
+  </tr>
+  <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+    <td>Hours</td>
+    <td><%= @employee_payroll.hours %></td>
+  </tr>
+  <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+    <td>Pay Rate</td>
+    <td>$<%= @employee_payroll.pay_earned %></td>
+  </tr>
+
+</table>
+
+<p class="supertiny"></p>
+<br />
+<%= link_to 'Back', :back %>
