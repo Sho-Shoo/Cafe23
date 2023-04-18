@@ -14,8 +14,8 @@
         <li><%= link_to 'Employees', employees_path %></li>
         <li><%= link_to 'Assignments', assignments_path %></li>
         <li><%= link_to 'Shifts', shifts_path %></li>
-        <li><%= link_to 'Jobs', jobs_path %></li>
-        <li><%= link_to 'Pay Grades', pay_grades_path %></li>
+<!--        <li><%#= link_to 'Jobs', jobs_path %></li>-->
+<!--        <li><%#= link_to 'Pay Grades', pay_grades_path %></li>-->
         <li><%= link_to 'Store Payrolls', store_form_path %></li>
       <% elsif current_user && current_user.employee_role? %>
         <li><%= link_to 'Upcoming Shifts', time_clock_path %></li>
