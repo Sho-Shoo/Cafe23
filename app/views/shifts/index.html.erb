@@ -42,6 +42,7 @@
   <th>End Time</th>
   <th>Job(s)</th>
   <th>Notes</th>
+  <th>Options</th>
   </thead>
   <% for shift in @completed_shifts %>
     <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
@@ -58,6 +59,8 @@
       <% end %>
 
       <td><%= shift.notes %></td>
+
+      <td><%= link_to "Add job", new_shift_job_path(shift_id: shift.id) %></td>
 
     </tr>
   <% end %>

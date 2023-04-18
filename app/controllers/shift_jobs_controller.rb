@@ -4,6 +4,11 @@ class ShiftJobsController < ApplicationController
     authorize_resource
 
     def new
+        if params[:shift_id]
+            @shift_id = params[:shift_id]
+        else
+            @shift_id = nil
+        end
         @shift_job = ShiftJob.new
     end
 
