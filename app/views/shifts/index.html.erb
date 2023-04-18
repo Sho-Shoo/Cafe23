@@ -8,7 +8,6 @@
   <th>Status</th>
   <th>Start Time</th>
   <th>End Time</th>
-  <th>Job(s)</th>
   <th>Notes</th>
   </thead>
   <% for shift in @upcoming_shifts %>
@@ -19,13 +18,6 @@
       <td><%= shift.status %></td>
       <td><%= humanize_time(shift.start_time) %></td>
       <td><%= humanize_time(shift.end_time) %></td>
-
-      <% if shift.jobs.empty? %>
-        <td>None</td>
-      <% else %>
-        <td><%= shift.jobs.map{|j| j.name}.join(', ') %></td>
-      <% end %>
-
       <td><%= shift.notes %></td>
 
     </tr>
