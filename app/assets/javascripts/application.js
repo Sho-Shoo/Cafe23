@@ -55,3 +55,8 @@ $('.dropdown-trigger').dropdown();
 $(document).ready(function(){
   $('.timepicker').timepicker();
 });
+
+// Carousel function
+$(document).ready(function(){
+    $('.carousel').carousel();
+});

@@ -9,7 +9,7 @@ html {
 }
 
 #main_content{
-  font-size: large;
+  font-size: medium;
 }
 
 /********** TOPBAR & NAV ********/
@@ -78,11 +78,11 @@ table.striped > tbody > tr:nth-child(odd) {
 }
 
 table.striped > tbody > tr:nth-child(even) {
-  background-color: #fffde7;
+  background-color: #fff4f2;
 }
 
 table.highlight > tbody > tr:hover {
-  background-color: #fff59d;
+  background-color: #ffb6C1;
 }
 
 td.align_right {
@@ -137,11 +137,11 @@ th.align_center {
 }
 
 .switch label input[type=checkbox]:checked + .lever::after {
-  background-color: #FFCB05;
+  background-color: #fc6c85;
 }
 
 .picker__date-display {
-  background-color: #FFCB05;
+  background-color: #fc6c85;
   color: #000;
 }
 
@@ -157,22 +157,22 @@ input[type=text].search {
 .picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected {
   border-radius: 50%;
   transform: scale(0.9);
-  background-color: #FFCB05;
+  background-color: #fc6c85;
   color: #000;
 }
 
 .check_boxes.optional.filled-in {
-  background-color: #FFCB05;
+  background-color: #fc6c85;
 }
 
 [type="checkbox"].filled-in:checked+label:after {
-  border: 2px solid #FFCB05;
-  background-color: #FFCB05;
+  border: 2px solid #fc6c85;
+  background-color: #fc6c85;
 }
 
 [type="radio"]:checked + label:after, [type="radio"].with-gap:checked + label:after {
-  border: 2px solid #FFCB05;
-  background-color: #FFCB05;
+  border: 2px solid #fc6c85;
+  background-color: #fc6c85;
 }
 
 #form-template {
@@ -214,7 +214,7 @@ li.no_bullet {
 }
 
 .tabs .tab a:hover {
-  color: #FFCB05;
+  color: #fc6c85;
 }
 
 .tabs .tab a {
@@ -225,7 +225,7 @@ li.no_bullet {
   position: absolute;
   bottom: 0;
   height: 2px;
-  background-color: #FFCB05;
+  background-color: #fc6c85;
   will-change: left, right;
 }
 

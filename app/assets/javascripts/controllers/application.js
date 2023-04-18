@@ -7,3 +7,8 @@
 // window.Stimulus   = application
 
 // export { application }
+
+// Carousel function
+$(document).ready(function(){
+    $('.carousel').carousel();
+});
