@@ -1,0 +1,19 @@
+<% if @shift_id.nil? %>
+  <%= f.input :shift_id,
+              collection: Shift.completed.chronological.map{|s| ["#{s.employee.proper_name}, #{humanize_date(s.date)}, #{humanize_time(s.start_time)} ~ #{humanize_time(s.end_time)}", s.id]},
+              include_blank: true %>
+<% else %>
+  <%= f.input :shift_id,
+              collection: [Shift.find(@shift_id)].map{|s| ["#{s.employee.proper_name}, #{humanize_date(s.date)}, #{humanize_time(s.start_time)} ~ #{humanize_time(s.end_time)}", s.id]},
+              include_blank: false %>
+<% end %>
+
+<%= f.input :job_id,
+            collection: Job.active.alphabetical,
+            include_blank: true %>
+
+
+<%#= f.input :date, label_html: { class: 'active' } %>
+<%#= f.input :start_time, label_html: { class: 'active' } %>
+<%#= f.input :end_time, label_html: { class: 'active' } %>
+<%#= f.input :notes, label_html: { class: 'active' } %>

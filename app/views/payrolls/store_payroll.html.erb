@@ -1,0 +1,34 @@
+<h4>Store Payroll Report</h4>
+<h5>For <%= @store.name %> Store from <%= humanize_date(@start_date) %> to <%= humanize_date(@end_date) %></h5>
+
+<table class="striped highlight">
+  <thead>
+  <th>Name</th>
+  <th>SSN</th>
+  <th>Pay Grade</th>
+  <th>Pay Rate</th>
+  <th>Hours</th>
+  <th>Pay Earned</th>
+  </thead>
+  <% for payroll in @store_payroll %>
+    <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+      <td><%= link_to payroll.employee_name, employee_path(payroll.employee)%></td>
+      <td><%= payroll.ssn %></td>
+      <td><%= link_to payroll.pay_grade, pay_grade_path(PayGrade.find_by(level: payroll.pay_grade)) %></td>
+      <td><%= payroll.pay_rate %></td>
+      <td><%= payroll.hours %></td>
+      <td>$<%= payroll.pay_earned %></td>
+    </tr>
+  <% end %>
+  <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>Total Wage: $<%= @store_payroll.map{|pr| pr.pay_earned}.sum %></td>
+  </tr>
+</table>
+<p class="supertiny"></p>
+<br />
+<%= link_to 'Back', :back %>

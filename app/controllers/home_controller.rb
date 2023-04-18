@@ -1,5 +1,8 @@
 class HomeController < ApplicationController
     def index
+        if not current_user.nil? and current_user.role == 'employee'
+            redirect_to time_clock_path
+        end
     end
 
     def about

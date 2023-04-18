@@ -1,11 +1,12 @@
 class ShiftsController < ApplicationController
     before_action :set_shift, only: [:show, :edit, :update, :destroy]
-    before_action :shift_today, only: [:time_clock, :time_in, :time_out]
+    before_action :set_upcoming_shifts, only: [:time_clock, :time_in, :time_out]
     before_action :check_login
     authorize_resource
 
     def index
-        @shifts = Shift.upcoming.chronological
+        @upcoming_shifts = Shift.upcoming.chronological.paginate(page: params[:page]).per_page(10)
+        @completed_shifts = Shift.completed.chronological.paginate(page: params[:page]).per_page(10)
     end
 
     def show
@@ -75,8 +76,9 @@ class ShiftsController < ApplicationController
         @shift = Shift.find(params[:id])
     end
 
-    def shift_today
+    def set_upcoming_shifts
         today_date_range = DateRange.new(Date.current, Date.current)
         @shift_today = Shift.for_employee(current_user).for_dates(today_date_range).first
+        @upcoming_shifts = Shift.for_employee(current_user).upcoming.chronological.paginate(page: params[:page]).per_page(10)
     end
 end

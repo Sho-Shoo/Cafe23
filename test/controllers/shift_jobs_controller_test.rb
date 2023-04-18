@@ -16,6 +16,11 @@ class ShiftJobsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get new without shift_id input" do
+    get new_shift_job_path
+    assert_response :success
+  end
+
   test "should create shift job" do
     assert_difference('ShiftJob.count') do
       post shift_jobs_path, params: { shift_job: { shift_id: @shift.id, job_id: @job.id } }
