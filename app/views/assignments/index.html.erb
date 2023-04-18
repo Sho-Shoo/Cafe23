@@ -15,6 +15,7 @@
       <td><%= link_to assignment.store.name, store_path(assignment.store) %></td>
       <td><%= link_to assignment.employee.proper_name, employee_path(assignment.employee) %></td>
       <td><%= link_to assignment.pay_grade.level, pay_grade_path(assignment.pay_grade) %></td>
+      <td><%= assignment.shifts.length %></td>
 
       <td class="align_center">
         <% if can? :edit, assignment %>
