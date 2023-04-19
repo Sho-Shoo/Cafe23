@@ -1,7 +1,14 @@
 class HomeController < ApplicationController
     def index
+        # redirect to time_clock only if current_user is a employee and has shift today
         if not current_user.nil? and current_user.role == 'employee'
-            redirect_to time_clock_path
+            today_date_range = DateRange.new(Date.current, Date.current)
+            shift_today = Shift.for_employee(current_user).for_dates(today_date_range).first
+            if shift_today
+                redirect_to time_clock_path
+            else
+                flash[:notice] = "You do not have any shifts today"
+            end
         end
     end
 
