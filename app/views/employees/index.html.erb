@@ -44,7 +44,9 @@
 <br />
 <%= will_paginate @active_employees, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
 <p>&nbsp;</p>
+<% if can? :create, Employee %>
 <%= render :partial => "partials/add_new_object", locals: {model_name: 'employee'} %>
+<% end %>
 
 <br /><br />
 
