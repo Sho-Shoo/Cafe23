@@ -31,9 +31,9 @@
           <% end %>
           &nbsp;&nbsp;&nbsp;&nbsp;
         <% end %>
-        <% if can? :destroy, employee %>
-          <%= link_to(employee_path(employee), method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' }) do %>
-            <i class="material-icons">delete</i>
+        <% if can? :show, employee %>
+          <%= link_to(employee_path(employee)) do %>
+            <i class="material-icons">zoom_in</i>
           <% end %>
         <% end %>
       </td>

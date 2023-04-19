@@ -20,9 +20,9 @@
           <% end %>
           &nbsp;&nbsp;&nbsp;&nbsp;
         <% end %>
-        <% if can? :destroy, store %>
-          <%= link_to(store_path(store), method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' }) do %>
-            <i class="material-icons">delete</i>
+        <% if can? :show, store %>
+          <%= link_to(store_path(store)) do %>
+            <i class="material-icons">zoom_in</i>
           <% end %>
         <% end %>
       </td>
