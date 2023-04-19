@@ -21,7 +21,7 @@
   </tr>
   <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
     <td>Pay Rate</td>
-    <td>$<%= @employee_payroll.pay_rate %></td>
+    <td><%= number_to_currency(@employee_payroll.pay_rate) %></td>
   </tr>
   <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
     <td>Hours</td>
@@ -29,7 +29,7 @@
   </tr>
   <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
     <td>Pay Earned</td>
-    <td>$<%= @employee_payroll.pay_earned %></td>
+    <td><%= number_to_currency(@employee_payroll.pay_earned) %></td>
   </tr>
 
 </table>
