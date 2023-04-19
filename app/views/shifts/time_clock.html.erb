@@ -3,25 +3,20 @@
 <table class="striped highlight">
   <thead>
   <th>Date</th>
+  <th>Location</th>
   <th>Status</th>
   <th>Start Time</th>
   <th>End Time</th>
-  <th>Job(s)</th>
-  <th>Notes</th>
+  <th class="align_center">Notes</th>
   <th class="align_center">Option(s)</th>
   </thead>
   <% for shift in @upcoming_shifts %>
     <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
       <td><%= humanize_date(shift.date) %></td>
+      <td><%= shift.store.name %></td>
       <td><%= shift.status %></td>
       <td><%= humanize_time(shift.start_time) %></td>
       <td><%= humanize_time(shift.end_time) %></td>
-
-      <% if shift.jobs.empty? %>
-        <td>None</td>
-      <% else %>
-        <td><%= shift.jobs.map{|j| j.name}.join(', ') %></td>
-      <% end %>
 
       <td><%= shift.notes %></td>
 
