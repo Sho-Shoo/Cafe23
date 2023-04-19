@@ -7,8 +7,7 @@
   <th>Status</th>
   <th>Start Time</th>
   <th>End Time</th>
-  <th class="align_center">Notes</th>
-  <th class="align_center">Option(s)</th>
+  <th class="align_center">Option</th>
   </thead>
   <% for shift in @upcoming_shifts %>
     <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
@@ -17,8 +16,6 @@
       <td><%= shift.status %></td>
       <td><%= humanize_time(shift.start_time) %></td>
       <td><%= humanize_time(shift.end_time) %></td>
-
-      <td><%= shift.notes %></td>
 
       <td class="align_center">
         <% if shift.date == Date.current %>
