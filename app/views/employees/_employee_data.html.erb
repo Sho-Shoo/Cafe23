@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="card-content">
+    <h5><%= best_in_place @employee, :first_name, as: :input %>
+      <%= best_in_place @employee, :last_name, as: :input %></h5><br />
+
+    <b>Personal Info:&nbsp;&nbsp;</b><br>
+    SSN: <%= best_in_place @employee, :ssn, as: :input %><br>
+    DOB: <%= best_in_place @employee, :date_of_birth, as: :input %><br>
+    Phone Number: <%= best_in_place @employee, :phone, as: :input, display_with: :number_to_phone %><br /><br />
+
+    <b>Current assignment:&nbsp;&nbsp;</b>
+    <% if @employee.current_assignment.nil? %>
+      None<br />
+    <% else %>
+      <%=  @employee.current_assignment.store.name %><br />
+    <% end %>
+
+    <b>Role:&nbsp;&nbsp;</b>
+    <%= best_in_place @employee, :role, as: :input %><br />
+
+    <b>Username:&nbsp;&nbsp;</b>
+    <%= @employee.active ? @employee.username : "n/a" %><br />
+
+    <b>Active with Cafe23?&nbsp;&nbsp;</b>
+    <%= @employee.active ? "Yes" : "No" %><br /><br />
+
+    <b><%= link_to "Add new assignment", new_assignment_path  %></b>
+
+  </div>
+</div>

@@ -58,6 +58,7 @@ gem 'materialize-sass', '0.100.2.1'
 gem 'materialize-form', '1.0.8'
 gem 'jquery-rails', '4.3.1'
 gem 'jquery-ui-rails', '6.0.1'
+gem "best_in_place", git: "https://github.com/mmotherwell/best_in_place"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

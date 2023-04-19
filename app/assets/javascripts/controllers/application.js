@@ -27,3 +27,8 @@ $(window).bind("load", function () {
         });
     }
 });
+
+// Best in place functionality
+$(document).ready(function() {
+    jQuery(".best_in_place").best_in_place();
+});

@@ -14,6 +14,7 @@
 //= require rails-ujs
 //= require materialize-sprockets
 //= require materialize-form
+//= require best_in_place
 //= require_tree .
 
 // Sticky footer js
@@ -59,4 +60,9 @@ $(document).ready(function(){
 // Carousel function
 $(document).ready(function(){
     $('.carousel').carousel();
+});
+
+// Best in place functionality
+$(document).ready(function() {
+    jQuery(".best_in_place").best_in_place();
 });
