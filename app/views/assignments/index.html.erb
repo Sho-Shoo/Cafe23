@@ -24,11 +24,6 @@
           <% end %>
           &nbsp;&nbsp;&nbsp;&nbsp;
         <% end %>
-        <% if can? :destroy, assignment %>
-          <%= link_to(assignment_path(assignment), method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' }) do %>
-            <i class="material-icons">delete</i>
-          <% end %>
-        <% end %>
       </td>
     </tr>
   <% end %>
