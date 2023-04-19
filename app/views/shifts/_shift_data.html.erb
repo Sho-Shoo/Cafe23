@@ -1,0 +1,36 @@
+<div class="card">
+  <div class="card-content">
+    <h5>Shift for <%= link_to @shift.employee.name, employee_path(@shift.employee) %> on <%= humanize_date(@shift.date) %></h5><br />
+
+    <h6>Shift Info:&nbsp;&nbsp;</h6>
+    Start time: <%= humanize_time @shift.start_time %><br>
+    End time: <%= @shift.end_time.nil? ? humanize_time(@shift.end_time) : 'not specified' %><br>
+    Status: <%= @shift.status %><br>
+    Job(s): <%= !@shift.jobs.empty? ? @shift.jobs.map{|j| j.name}.join(', ') : 'None' %><br>
+    Location: <%= @shift.store.name %><br>
+
+    <br>
+
+    <h6>Notes:&nbsp;&nbsp;</h6>
+    <%= @shift.notes %>
+
+<!--    <b>Current assignment:&nbsp;&nbsp;</b>-->
+    <%# if @employee.current_assignment.nil? %>
+<!--      None<br />-->
+    <%# else %>
+<!--      <%#=  @employee.current_assignment.store.name %><br />-->
+    <%# end %>
+
+<!--    <b>Role:&nbsp;&nbsp;</b>-->
+<!--    <%#= best_in_place @employee, :role, as: :input %><br />-->
+
+<!--    <b>Username:&nbsp;&nbsp;</b>-->
+<!--    <%#= @employee.active ? @employee.username : "n/a" %><br />-->
+
+<!--    <b>Active with Cafe23?&nbsp;&nbsp;</b>-->
+<!--    <%#= @employee.active ? "Yes" : "No" %><br /><br />-->
+
+<!--    <b><%#= link_to "Add new assignment", new_assignment_path  %></b>-->
+
+  </div>
+</div>
